@@ -1,0 +1,144 @@
+.ios,
+.md {
+  page-home {
+    h2 span {
+      color: rgb(50, 97, 149);
+      font-size: large;
+    }
+    h2 small {
+      // color: rgb(50, 97, 149);
+      font-size: 100% !important;
+    }
+    
+    .logo img {
+      height: 70px;
+      float: left;
+      margin-bottom: -8 px;
+    }
+    .select-icon{
+      position: relative;
+      width: 14px;
+      height: 34px;
+    }
+    
+    .back{
+      background-color: inherit;
+    }
+
+    .seconde {
+      float: right !important;
+      width: 70px;
+      height: 70px !important;
+      border-radius: 50%;
+    }
+    .clearfix {
+      clear: both;
+    }
+
+    
+   
+  ion-icon {
+    font-size: 31px;
+    color: rgb(50, 97, 149);
+  }
+
+  .color{
+    margin-top: 0px;
+    color: rgb(174, 175, 178);
+  }
+  .new{
+    font-size: 31px;
+    color: rgb(50, 97, 149);
+  }
+
+  ion-row {
+    // height: 100%;
+    /* flex-wrap: wrap; */
+  }
+
+  ion-col {
+    /* flex: 0 0 33.33%;
+    max-width: 33.33%; */
+    text-align: center;
+    padding: 10px 5px;
+  }
+  .but-color{
+    background-color: rgb(50, 97, 149);
+  }
+}
+
+
+.logo {
+  // background: #fff none repeat scroll 0 0;
+  
+  height: 70px !important;
+  width: 184px;
+  display: table;
+  margin: auto;
+  text-align: center;      
+
+  img {
+    margin-top: 26px;
+    height: 70px;
+    width: 184px;
+  }
+}
+h3 span {
+  color: white;
+}
+
+.ficon{
+  font-size: 39px;
+  color: white; 
+}
+
+.mess{
+  margin-bottom: -21px;
+}
+
+.seconde {
+  float: right !important;
+  width: 70px;
+  height: 70px !important;
+  border-radius: 50%;
+}
+.clearfix {
+  clear: both;
+}
+
+ion-icon {
+font-size: 29px;
+// color: white;
+}
+
+.color{
+margin-top: 7px;
+color: white;
+}
+.new{
+font-size: 39px;
+color: white;
+}
+
+ion-row {
+// height: 100%;
+flex-wrap: wrap;
+}
+
+ion-col {
+/* flex: 0 0 33.33%;
+max-width: 33.33%;
+text-align: center;
+padding: 10px 5px; */
+}
+
+.but-color{
+background-color: white;
+}
+.logbtn {
+  color: #fff !important;
+  background-color: rgb(50, 97, 149) !important;
+  font-size: 32px;
+}
+
+}

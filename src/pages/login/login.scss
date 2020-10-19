@@ -1,0 +1,91 @@
+page-login {
+
+  
+  .form-color{
+    background-color: transparent !important;
+}
+
+  
+  .row {
+    .col {
+      padding: 0;
+      margin: 0;
+      .button {
+        padding: 0;
+        margin: 0;
+        .icon {
+          padding: 0 0.2em;
+        }
+      }
+    }
+    margin-bottom: 30px;
+  }
+  .content {
+    display: block;
+    background-repeat: repeat-y;
+  }
+  .select-md .select-icon{
+    position: relative;
+    width: 14px;
+    height: 34px;
+  }
+  .redBackground {
+    /*         background: url(../assets/imgs/background_inner.jpg) no-repeat scroll left bottom/cover;
+ */
+    display: block;
+    background-repeat: repeat-y;
+    margin: 0;
+  }
+  form {
+    margin-top: 50px;
+    button {
+      color: color($colors, primary) !important;
+    }
+    .item {
+      input {
+      }
+    }
+  }
+  .flable {
+    margin-left: 0px;
+    color: rgb(50, 97, 149);
+    margin: 10px 0 4px 0;
+  }
+  .list {
+    .item {
+      border: #ccc 1px solid !important;
+      margin-bottom: 10px;
+    }
+  }
+  .hint {
+    color: color($colors, light, base);
+    text-decoration: underline;
+  }
+  button {
+    height: 4.6rem !important;
+  }
+  .logbtn {
+    color: #fff !important;
+    background-color: rgb(50, 97, 149) !important;
+    font-size: 32px;
+  }
+  
+  
+  .back{
+    background-color: inherit;
+  }
+  .logo {
+    
+    height: 70px !important;
+    width: 184px;
+    display: table;
+    margin: auto;
+    text-align: center;  
+
+    img {
+      margin-top: 26px;
+      height: 70px;
+      width: 184px; 
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<!--
+  Generated template for the MyUnitsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header translucent>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Products' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+
+  <ion-list class="accordion-list" *ngIf="products.length!=0" >
+    <!-- First Level -->
+    <ion-list-header class="card-background" *ngFor="let item of products; let i = index" no-lines no-padding>
+      <!-- Toggle Button -->
+      <button class="card-background" ion-item (click)="openDetails(i)" detail-none
+        [ngClass]="{'section-active': item.open, 'section': !item.open}">
+        <ion-icon item-left name="ios-arrow-dropdown" *ngIf="!item.open"></ion-icon>
+        <ion-icon item-left name="ios-arrow-dropup" *ngIf="item.open"></ion-icon>
+        {{ item.name }}
+      </button>
+      <ion-card class="card-background" [hidden]=!item.open>
+        <ion-card-content>
+
+          <ion-item class="card-background">
+            <h4 *ngIf="item.description != false" class="color">{{'Description' | translate }} :</h4>
+            <p *ngIf="item.description != false" style="color: rgb(174, 175, 178);">{{item.description}}</p>
+            <ion-grid >
+              <ion-row>
+                <ion-col  col-6>
+                  <h4 class="color">{{'Price Date' | translate }} :</h4>
+                  <p style="color: rgb(52, 62, 90);">{{item.pricingList.date_to}}</p>
+                </ion-col>
+                <ion-col  col-6 >
+                  <h4 class="color">{{'Unit Price' | translate }} :</h4>
+                  <p style="color: rgb(52, 62, 90);">{{item.pricingList.price}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <h2>
+              {{"Performance Returns"| translate }}
+            </h2>
+            <ion-grid >
+              <ion-row>
+              
+               <ion-col col-6><h4 class="color">{{'Day' | translate }}</h4></ion-col>
+               <ion-col col-6><p style="color: rgb(52, 62, 90);">{{item.pricingList.performance}}</p></ion-col>
+               <ion-col col-6><h4 class="color">{{'Week' | translate }}</h4></ion-col>
+               <ion-col col-6><p style="color: rgb(52, 62, 90);">{{item.wtd}}</p></ion-col>
+               <ion-col col-6><h4 class="color">{{'Month' | translate }}</h4></ion-col>
+               <ion-col col-6><p style="color: rgb(52, 62, 90);">{{item.mtd}}</p></ion-col>
+               <ion-col col-6><h4 class="color">{{'Quarter' | translate }}</h4></ion-col>
+               <ion-col col-6><p style="color: rgb(52, 62, 90);">{{item.qtd}}</p></ion-col>
+               <ion-col col-6><h4 class="color">{{'Year' | translate }}</h4></ion-col>
+               <ion-col col-6><p style="color: rgb(52, 62, 90);">{{item.ytd}}</p></ion-col>
+              </ion-row>
+            </ion-grid>
+            <div *ngIf="item.fileList.length != 0" class="card-background">
+              <button (click)="goToReportPage(item.fileList)"  ion-button
+                style="background-color: rgb(50, 97, 149);">{{'Report' | translate }}</button>
+              <!-- <ion-spinner *ngIf="loader == true" ></ion-spinner> -->
+            </div>
+          </ion-item>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list-header>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,24 @@
+page-my-units {
+    
+    .info-box-number {
+        display: block;
+        font-weight: bold;
+        font-size: 23px;
+      }
+    
+    .info-box-text {
+        display: block;
+        font-size: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+    .card-background{
+        background-color: inherit !important;
+        color: rgb(50, 97, 149)  !important;
+    }
+    .color {
+        color: rgb(50, 97, 149)  !important; 
+      }
+}

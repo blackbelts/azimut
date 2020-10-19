@@ -1,0 +1,46 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>{{ tranValues.login }}</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-content padding class="redBackground">
+  <ion-list no-lines>
+        <ion-item class="back">
+          <ion-label style="color: rgb(174, 175, 178) !important;" >{{'Language' | translate }}</ion-label>
+          <ion-select  style="color: rgb(50, 97, 149) !important;" [(ngModel)]="selectedLanguage" (ionChange)='languageChanged()' [cancelText]="'CANCEL' | translate">
+            <ion-option style="color: rgb(50, 97, 149) !important;" *ngFor="let item of languages" [value]="item.code">{{item.code}}</ion-option>
+          </ion-select>
+        </ion-item>
+  </ion-list>
+  <br>
+  
+  <div class="logo" text-center>
+    <img src="../../assets/imgs/logo.png">
+  </div>
+  
+  <br>
+  <br>
+  <div class="form-color">
+  <form class="list-form" (ngSubmit)="frmSubmit()">
+    <ion-item class="form-color">
+      <ion-label floating class="color" style="color:rgb(50, 97, 149);">
+        <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+        {{'Email' | translate }}
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="frmData.email" name="username" style="color:rgb(50, 97, 149);"></ion-input>
+    </ion-item>
+
+    <ion-item class="form-color">
+      <ion-label floating style="color:rgb(50, 97, 149);">
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        {{'Password' | translate}}
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="frmData.password" name="password" style="color:rgb(50, 97, 149);"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button block round class="logbtn"><ion-icon name="log-in"></ion-icon></button>
+  </form>
+</div>
+  
+ <!--  <button ion-button clear text-right  outline block [navPush]="forgotpasswordPage">Forgot Password?</button> -->
+</ion-content>
