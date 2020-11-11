@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header translucent>
+  <ion-navbar primary>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Notification</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-content padding>
+
+</ion-content> -->
+<ion-content >
+  <ion-item-group>
+    <ion-item-divider color="light">New</ion-item-divider>
+
+    <ion-item style="background-color: #f5f6f7;" *ngFor="let item of myNewNotifications">
+      <h3 style="color: #326195;">{{item.title}}</h3>
+      <!-- <br> -->
+      {{item.description}}
+    
+    </ion-item>
+    <!-- <ion-item style="background-color: #edf2fa;">
+      Your Subscription Added !
+    </ion-item> -->
+
+    
+  </ion-item-group>
+  <!-- <ion-item-group>
+    <ion-item-divider color="light">Earlier</ion-item-divider>
+
+  
+    <ion-item *ngFor="let item of notifications">
+      {{item.subject}}
+    
+    </ion-item>
+    <ion-item>
+      Your Subscription Added !
+    </ion-item>
+
+
+   
+  </ion-item-group> -->
+</ion-content>

@@ -1,0 +1,36 @@
+<!--
+  Generated template for the FundPerformancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header translucent>
+  <ion-navbar primary>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>{{'Reports' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-card *ngFor="let item of reports"  class="welcome-card card-background">
+    <ion-card-content  class="card-background">
+      <ion-list>
+        <ion-item (click)="downloadAndOpenPdf(item.name)">
+          <ion-icon style="color: #326195;" name="document" item-start></ion-icon>
+          <span style="color: #aeafb2;">{{item.report}}</span>
+          <ion-icon style="color: #326195;" name="open" item-end></ion-icon>
+        </ion-item>
+      </ion-list>
+      
+
+      <!-- <embed [src]='pdfURL(item.name)' width="70%"  />
+      {{item.name}} -->
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

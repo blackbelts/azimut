@@ -1,0 +1,5 @@
+<ion-tabs [selectedIndex]="myIndex">
+  <ion-tab [root]="tab1Root" [rootParams]='profile' tabIcon="contact"></ion-tab>
+  <ion-tab [root]="tab2Root" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab3Root" tabBadgeStyle="danger" (ionSelect)="changeNum()" tabIcon="notifications"  [tabBadge]="num"></ion-tab>
+</ion-tabs>

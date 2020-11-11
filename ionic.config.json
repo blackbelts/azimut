@@ -1,0 +1,7 @@
+{
+  "name": "Azimut",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

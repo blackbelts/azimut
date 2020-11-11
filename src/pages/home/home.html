@@ -1,0 +1,91 @@
+<ion-content padding>
+    
+  <ion-list no-lines>
+    <ion-item class="back">
+      <ion-label style="color: rgb(174, 175, 178) !important;" >{{'Language' | translate }}</ion-label>
+      <ion-select  style="color: rgb(50, 97, 149) !important;" [(ngModel)]="selectedLanguage" (ionChange)='languageChanged()' [cancelText]="'CANCEL' | translate">
+        <ion-option style="color: rgb(50, 97, 149) !important;" *ngFor="let item of languages" [value]="item.code">{{item.code}}</ion-option>
+      </ion-select>
+    </ion-item>
+</ion-list>
+<br>
+  <div class="logo" text-center>
+    <img src="../../assets/imgs/logo.png">
+    <!-- <img class="seconde" [src]="common.srcFromBase64Images(profile.image_small)"> -->
+    <!-- <img class="seconde" src="../../assets/imgs/FakeDP.jpeg"> -->
+  </div>
+  <div class="clearfix"></div>
+  
+  <h2 text-center><small>{{'Welcome' | translate}} </small><button ion-button clear block (click)="gotoprofile(profile)" ><span color="primary">{{profile}}</span></button></h2>
+  
+ 
+  <!-- <br> -->
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-4 (click)="gotosubs(profile)">
+        <div>
+          <ion-icon name="cash" color="primary"></ion-icon>
+          <p class="color">{{'Subscriptions'| translate}}</p>
+        </div>
+      </ion-col>
+      <ion-col col-4 (click)="gotoinvests(profile)">
+        <div>
+          <ion-icon name="logo-usd" color="primary"></ion-icon>
+          <p class="color">{{'Evaluation' | translate}}</p>
+        </div>
+      </ion-col>
+      <!-- <ion-col (click)="gotounits(profile)">
+          <div>
+            <i class="fas fa-archive new"></i>
+            <p class="color">{{'Units'| translate}}</p>
+          </div>
+      </ion-col> -->
+  
+      <ion-col col-4 (click)="gotofundPerformance()">
+          <div>
+            <ion-icon name="trending-up" color="primary"></ion-icon>
+            <p class="color">{{'Performance'| translate}}</p>
+          </div>
+      </ion-col>
+      <ion-col col-4 (click)="gotoloans(profile)">
+          <div>
+            <i class="fas fa-hand-holding-usd new"></i>
+            <!-- <ion-icon name="cart" color="primary"></ion-icon> -->
+            <p class="color">{{'Loans' | translate}}</p>
+          </div>
+      </ion-col>
+      <!-- <ion-col (click)="gotosurrenders(profile)"> -->
+      <ion-col col-4 (click)="surrenderAllert()">
+          <div>
+            <ion-icon name="hand" color="primary"></ion-icon>
+            <p class="color">{{'Surrender' | translate}}</p>
+          </div>
+      </ion-col>
+      <ion-col col-4 (click)="goToProducts()">
+        <div>
+          <ion-icon name="podium" color="primary"></ion-icon>
+          <p class="color">{{'Products' | translate}}</p>
+        </div>
+    </ion-col>
+    <ion-col col-4 (click)="goToRepors()">
+      <div>
+        <ion-icon name="paper" color="primary"></ion-icon>
+        <p class="color">{{'Reports' | translate}}</p>
+      </div>
+  </ion-col>
+      <ion-col col-4 (click)="logout()">
+        <div>
+          <ion-icon name="log-out" color="primary"></ion-icon>
+          <p class="color">{{'LogOut' | translate}}</p>
+        </div>
+    </ion-col>
+  
+    </ion-row>
+  </ion-grid>
+  <!-- <br>
+  
+  <button (click)="logout()" ion-button block round class="logbtn"><ion-icon style="color:white;" name="log-out"></ion-icon></button> -->
+
+ 
+</ion-content>

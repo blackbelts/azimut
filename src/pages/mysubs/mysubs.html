@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MyUnitsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header translucent>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{'Subscriptions' | translate}}</ion-title>
+      </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  
+  <ion-list class="accordion-list">
+  <!-- First Level -->
+  <ion-list-header no-lines no-padding class="card-background">
+    <!-- Toggle Button -->
+    <ion-card class="card-background" >
+      
+        <ion-item class="card-background">
+              <h4 class='color'>{{'Emp Share' | translate }} :</h4>
+              <p style="color: rgb(174, 175, 178);">{{this.common.getFomatedPrice(empSubs)}} LE</p>
+        </ion-item>
+        <ion-item class="card-background">
+            <h4 class='color'>{{'Comp Share' | translate }}  :</h4>
+            <p style="color: rgb(174, 175, 178);">{{this.common.getFomatedPrice(compSubs)}} LE</p>
+        </ion-item>
+        <ion-item class="card-background">
+            <h4 class='color'>{{'Emp Boosters' | translate }} :</h4>
+            <p style="color: rgb(174, 175, 178);">{{this.common.getFomatedPrice(emp_boosters)}} LE</p>
+        </ion-item>
+        <ion-item class="card-background">
+          <h4 class='color'>{{'Comp Boosters' | translate }} :</h4>
+          <p style="color: rgb(174, 175, 178);">{{this.common.getFomatedPrice(comp_boosters)}} LE</p>
+        </ion-item>
+        <ion-item class="card-background">
+              <h4 class='color'>{{'Total Subscriptions' | translate }} :</h4>
+              <p style="color: rgb(174, 175, 178);">{{this.common.getFomatedPrice(units)}} LE</p>
+        </ion-item>
+    </ion-card>
+  </ion-list-header>
+  </ion-list>
+      
+</ion-content>
+
