@@ -1,68 +1,68 @@
 <ion-header translucent>
-  <ion-navbar primary>
-    <button ion-button menuToggle>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My Profile</ion-title>
-  </ion-navbar>
+        <ion-title>{{'My Profile'| translate}}</ion-title>
+    </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-list>
+    <ion-list>
 
-    <ion-item class="card-background">
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Name :</h3>
-        <p>{{ profile.name == false ?'':profile.name }}</p>
-      </ion-label>
-    </ion-item>
-    <ion-item class="card-background">
+            <ion-label>
+                <h3>{{'Name'| translate}} :</h3>
+                <p>{{ profile.name == false ?'':profile.name }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Phone :</h3>
-        <p>{{ profile.phone == false ?'': profile.phone}}</p>
-      </ion-label>
-    </ion-item>
-    <ion-item class="card-background">
+            <ion-label>
+                <h3>{{"Phone"| translate}} :</h3>
+                <p>{{ profile.phone == false ?'': profile.phone}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Mail :</h3>
-        <p>{{ profile.email == false ?'': profile.email }}</p>
-      </ion-label>
-    </ion-item>
+            <ion-label>
+                <h3>{{"Mail"| translate}} :</h3>
+                <p>{{ profile.email == false ?'': profile.email }}</p>
+            </ion-label>
+        </ion-item>
 
-    <ion-item class="card-background">
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Job Position :</h3>
-        <p>{{ profile.function == false ?'': profile.function}}</p>
-      </ion-label>
-    </ion-item>
+            <ion-label>
+                <h3>{{"Job Position"| translate}} :</h3>
+                <p>{{ profile.function == false ?'': profile.function}}</p>
+            </ion-label>
+        </ion-item>
 
-    <ion-item class="card-background">
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Sub Company :</h3>
-        <p>{{ department == false ?'': department}}</p>
-      </ion-label>
-    </ion-item>
+            <ion-label>
+                <h3>{{"Sub Company"| translate}} :</h3>
+                <p>{{ department == false ?'': department}}</p>
+            </ion-label>
+        </ion-item>
 
-    <ion-item class="card-background">
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Supscription Date :</h3>
-        <p>{{ profile.subscription_date == false ?'': profile.subscription_date}}</p>
-      </ion-label>
-    </ion-item>
-    <ion-item class="card-background">
+            <ion-label>
+                <h3>{{"Supscription Date"| translate}} :</h3>
+                <p>{{ profile.subscription_date == false ?'': profile.subscription_date}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="card-background">
 
-      <ion-label>
-        <h3>Pension Date :</h3>
-        <p>{{ profile.pension_date == false ?'': profile.pension_date}}</p>
-      </ion-label>
-    </ion-item>
+            <ion-label>
+                <h3>{{"Pension Date"| translate}} :</h3>
+                <p>{{ profile.pension_date == false ?'': profile.pension_date}}</p>
+            </ion-label>
+        </ion-item>
 
-  </ion-list>
+    </ion-list>
 
 
 

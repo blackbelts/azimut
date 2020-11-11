@@ -10,43 +10,42 @@
           <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>{{'Performance' | translate}}</ion-title>
-      </ion-navbar>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Quarter OF Year</ion-label>
-    <ion-datetime (ionChange)="querterPerformance(year.toString())" [(ngModel)]="year" displayFormat="YYYY" ></ion-datetime>
-  </ion-item>
-  
-  <ion-list class="accordion-list card-background">
-  <ion-list-header class="card-background" *ngFor="let item of products; let i = index;" no-lines no-padding>
-    <button class="card-background" ion-item (click)="openDetails(item)"  detail-none [ngClass]="{'section-active': quarterData[item].open, 'section': !quarterData[item].open}">
+    <ion-item>
+        <ion-label>{{"Year"| translate}}</ion-label>
+        <ion-datetime (ionChange)="querterPerformance(year.toString())" [(ngModel)]="year" displayFormat="YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-list class="accordion-list card-background">
+        <ion-list-header class="card-background" *ngFor="let item of products; let i = index;" no-lines no-padding>
+            <button class="card-background" ion-item (click)="openDetails(item)" detail-none [ngClass]="{'section-active': quarterData[item].open, 'section': !quarterData[item].open}">
       <ion-icon item-left name="ios-arrow-dropdown" *ngIf="!quarterData[item].open"></ion-icon>
       <ion-icon item-left name="ios-arrow-dropup" *ngIf="quarterData[item].open"></ion-icon>
         {{ item }}
     </button>
-    <ion-card class="welcome-card card-background" [hidden]=!quarterData[item].open>
-      <ion-card-header class="card-background">
-        <ion-card-title class="card-background">Monthly</ion-card-title>
-      </ion-card-header>
-      <ion-card-content  class="card-background">
-        <canvas style="height: 189px !important;" height="189" id="{{'monthly-'+item}}" #barChart></canvas>
-      </ion-card-content>
-      <ion-card-header class="card-background">
-        <ion-card-title class="card-background">Quarterly</ion-card-title>
-      </ion-card-header>
-      <ion-card-content  class="card-background">
-        <canvas style="height: 189px !important;" height="189" id="{{'quarter-'+item}}" #barChart></canvas>
-      </ion-card-content>
-    </ion-card>
-  </ion-list-header>
-  </ion-list>
-  <!-- <ion-card class="welcome-card card-background">
+            <ion-card class="welcome-card card-background" [hidden]=!quarterData[item].open>
+                <ion-card-header class="card-background">
+                    <ion-card-title class="card-background">{{"Monthly"| translate}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="card-background">
+                    <canvas style="height: 189px !important;" height="189" id="{{'monthly-'+item}}" #barChart></canvas>
+                </ion-card-content>
+                <ion-card-header class="card-background">
+                    <ion-card-title class="card-background">{{"Quarterly"| translate}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="card-background">
+                    <canvas style="height: 189px !important;" height="189" id="{{'quarter-'+item}}" #barChart></canvas>
+                </ion-card-content>
+            </ion-card>
+        </ion-list-header>
+    </ion-list>
+    <!-- <ion-card class="welcome-card card-background">
     <ion-card-content  class="card-background">
       <canvas style="height: 189px !important;" height="189" id="line-chart" #barChart></canvas>
     </ion-card-content>
   </ion-card> -->
 </ion-content>
-

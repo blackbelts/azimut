@@ -189,28 +189,32 @@ export class HomePage {
     this.languageService.setLanguage(this.selectedLanguage);
   }
   surrenderAllert(){
-    let alert = this.alertCtrl.create({
-      title: this.allertTranslate('Surrender'),
-      message: 'Date of Surrender',
-      inputs: [
-        {
-          name: 'surrenderDate',
-          placeholder: 'Date of Surrender',
-          type: 'date'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Submit',
-          role: 'Submit',
-          handler: date => {
-            this.gotosurrenders(this.profile,date);
+    this.translate.get(["Date of Surrender","Submit"]).subscribe(res=>{
+      console.log(res)
+      let alert = this.alertCtrl.create({
+        title: this.allertTranslate('Surrender'),
+        message: res["Date of Surrender"],
+        inputs: [
+          {
+            name: 'surrenderDate',
+            placeholder: res["Date of Surrender"],
+            type: 'date'
           }
-        },
-        
-      ]
-    });
-    alert.present();
+        ],
+        buttons: [
+          {
+            text: res["Submit"],
+            role: 'Submit',
+            handler: date => {
+              this.gotosurrenders(this.profile,date);
+            }
+          },
+          
+        ]
+      });
+      alert.present();
+    })
+   
   }
   allertTranslate(key){
     this.translate.get(key).subscribe((res) => {
