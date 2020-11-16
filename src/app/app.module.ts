@@ -1,3 +1,14 @@
+import { ProductsPageModule } from './../pages/products/products.module';
+import { ReportsPageModule } from './../pages/reports/reports.module';
+import { NotificationPageModule } from './../pages/notification/notification.module';
+import { SurrenderPageModule } from './../pages/surrender/surrender.module';
+import { MyinvestsPageModule } from './../pages/myinvests/myinvests.module';
+import { MysubsPageModule } from './../pages/mysubs/mysubs.module';
+import { ProfilePageModule } from './../pages/profile/profile.module';
+import { MyUnitsPageModule } from './../pages/my-units/my-units.module';
+import { LoanPageModule } from './../pages/loan/loan.module';
+import { HomePageModule } from './../pages/home/home.module';
+import { FundPerformancePageModule } from './../pages/fund-performance/fund-performance.module';
 import { ProductReportPageModule } from './../pages/product-report/product-report.module';
 import { ProductReportPage } from './../pages/product-report/product-report';
 import { DocumentViewer } from '@ionic-native/document-viewer';
@@ -51,8 +62,7 @@ import { from } from 'rxjs/observable/from';
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { TabsPageModule } from '../pages/tabs/tabs.module';
-
-
+import {BackgroundMode} from '@ionic-native/background-mode'
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -61,29 +71,39 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     MyApp,
-    ProfilePage,
-    MyUnitsPage,
-    FundPerformancePage,
-    MysubsPage,
-    MyinvestsPage,
-    LoanPage,
-    SurrenderPage,
-    HomePage,
-    /* TabsPage, */
-    NotificationPage,
-    ReportsPage,
-    ProductsPage,
+    /* ProfilePage, */
+/*     MyUnitsPage,
+ */    /* FundPerformancePage */
+   /*  MysubsPage, */
+    /* MyinvestsPage, */
+    /* LoanPage, */
+    /* SurrenderPage, */
+/*     HomePage,
+ */    /* TabsPage, */
+    /* NotificationPage, */
+    /* ReportsPage, */
+    /* ProductsPage, */
     /* ProductReportPage */
     
   ],
   imports: [
-
+    MyUnitsPageModule,
+    ProfilePageModule,
+    MysubsPageModule,
+    MyinvestsPageModule,
+    SurrenderPageModule,
+    NotificationPageModule,
+    ReportsPageModule,
+    ProductsPageModule,
+    LoanPageModule,
     BrowserModule,
     HttpModule,
     TabsPageModule,
+    HomePageModule,
     HttpClientModule,
     AutoCompleteModule,
     ProductReportPageModule,
+    FundPerformancePageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -128,6 +148,7 @@ export function createTranslateLoader(http: HttpClient) {
     OdooProvider,
     Badge,
     FileTransfer,
+    BackgroundMode,
     DocumentViewer
     /* Base64ToGallery */
   ],

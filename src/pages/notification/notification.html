@@ -5,11 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header translucent>
-  <ion-navbar primary>
-      <button ion-button menuToggle>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Notification</ion-title>
+        <ion-title>{{"Notification"|translate}}</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -17,23 +17,23 @@
 <!-- <ion-content padding>
 
 </ion-content> -->
-<ion-content >
-  <ion-item-group>
-    <ion-item-divider color="light">New</ion-item-divider>
+<ion-content>
+    <ion-item-group>
+        <ion-item-divider color="light">{{"New"|translate}}</ion-item-divider>
 
-    <ion-item style="background-color: #f5f6f7;" *ngFor="let item of myNewNotifications">
-      <h3 style="color: #326195;">{{item.title}}</h3>
-      <!-- <br> -->
-      {{item.description}}
-    
-    </ion-item>
-    <!-- <ion-item style="background-color: #edf2fa;">
+        <ion-item style="background-color: #f5f6f7;" *ngFor="let item of common.notifications">
+            <h3 style="color: #326195;">{{item.title}}</h3>
+            <!-- <br> -->
+            {{item.description}}
+
+        </ion-item>
+        <!-- <ion-item style="background-color: #edf2fa;">
       Your Subscription Added !
     </ion-item> -->
 
-    
-  </ion-item-group>
-  <!-- <ion-item-group>
+
+    </ion-item-group>
+    <!-- <ion-item-group>
     <ion-item-divider color="light">Earlier</ion-item-divider>
 
   

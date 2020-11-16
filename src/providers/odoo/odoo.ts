@@ -64,13 +64,13 @@ export class OdooProvider {
     return this.http.get(this.makeHttpUrl(uid, password, modal, method, domains, mapList))
   }
   makeHttpUrl(uid, password, modal, method, domains = [], mapList = []) {
-    console.log(odooUrl +
+   /*  console.log(odooUrl +
       "uid=" + uid +
       "&password=" + password +
       "&modalname=" + modal +
       "&method=" + method +
       (method == "create" ? this.makeDomainQueryForCreate(domains) : this.makeDomainQuery(domains)) +
-      this.makeMappingList(mapList))
+      this.makeMappingList(mapList)) */
     return (
       odooUrl +
       "uid=" + uid +
@@ -161,7 +161,7 @@ export class OdooProvider {
   }
   createOrwrite(data) {
     data = JSON.stringify(data)
-    console.log(data)
+    /* console.log(data) */
     return this.http.post(odooUrl, data)
     
   }

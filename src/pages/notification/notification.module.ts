@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { NotificationPage } from './notification';
@@ -8,6 +9,7 @@ import { NotificationPage } from './notification';
   ],
   imports: [
     IonicPageModule.forChild(NotificationPage),
+    TranslateModule
   ],
 })
-export class NotificationPageModule {}
+export class NotificationPageModule { }

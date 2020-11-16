@@ -3,19 +3,23 @@ import { Injectable } from '@angular/core';
 import { AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { OdooProvider } from '../odoo/odoo';
 @Injectable()
 export class CommonProvider {
-
+  public notifications: any = []
+  public notificationsIds = []
+  public notificationsRes: any = []
   private loader: any;
   constructor(
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
-    public storage: Storage
+    public storage: Storage,
+    public odooProv: OdooProvider
   ) {
     //console.log('Hello CommonProvider Provider');
   }
-  
+
   showAlert(message) {
     let alert = this.alertCtrl.create({ title: 'Information', subTitle: message, buttons: ['OK'] });
     alert.present();
@@ -52,10 +56,46 @@ export class CommonProvider {
     n = n.toFixed(2);
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  
+
 
   srcFromBase64Images(image) {
     return "data:image/png;base64," + image
+  }
+  getNotifications() {
+    this.notifications=[]
+    this.notificationsIds=[]
+    this.odooProv.createOrwrite(
+      {
+        uid: this.odooProv.getUid(),
+        password: this.odooProv.getPassword(),
+        modalname: "smart.notification",
+        method: "get_notifications",
+        parmlist: [
+          this.odooProv.getUid()
+        ]
+      })
+      .map(res => res)
+      .subscribe(res => {
+        this.notifications = res
+        this.notifications.forEach(not => {
+          console.log(not)
+          this.notificationsIds.push(not.id)
+        })
+        console.log(res,this.notificationsIds)
+        /*  if (this.notificationsRes.length !== 0)
+           this.notificationsRes.forEach(rec => {
+             rec.useer.forEach(id => {
+               if (id == this.odooProv.getUid()) {
+                 this.notifications.push(rec);
+                 this.notificationsIds.push(rec.id)
+               }
+ 
+             });
+ 
+           }) */
+        console.log("notificationsRes")
+
+      });
   }
 }
 
