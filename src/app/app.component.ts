@@ -53,6 +53,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       console.log("hide")
+      if (localStorage.getItem("lang") == null) {
+        this.translate.setDefaultLang("en")
+        localStorage.setItem("lang", "en")
+      }
+      else {
+        this.translate.setDefaultLang(localStorage.getItem("lang"))
+        this.textDir = localStorage.getItem("lang") == "ar" ? 'rtl' : 'ltr'
+      }
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         console.log("done")
         this.textDir = event.lang == 'ar' ? 'rtl' : 'ltr';

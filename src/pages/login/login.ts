@@ -32,7 +32,8 @@ export class LoginPage {
     public utils: UtilsProvider,
     public http: HttpClient
   ) {
-    this.selectedLanguage = this.languageService.getLanguage();
+    this.selectedLanguage =localStorage.getItem("lang")/*  this.languageService.getLanguage() */;
+    console.log(this.selectedLanguage)
     this.languages = this.languageService.getLanguages();
     this.frmData = { email: '', password: '' }
     console.log('x')

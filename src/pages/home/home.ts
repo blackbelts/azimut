@@ -36,8 +36,8 @@ export class HomePage {
   name
   title: string;
   // languageSelected : any = 'en';
-  languages : Array<LanguageModel>;
-  selectedLanguage:string;
+  languages: Array<LanguageModel>;
+  selectedLanguage: string;
   constructor(
     public navCtrl: NavController,
     public common: CommonProvider,
@@ -49,8 +49,8 @@ export class HomePage {
     public http: HttpClient,
     private alertCtrl: AlertController
   ) {
-    
-    this.selectedLanguage = this.languageService.getLanguage();
+
+    this.selectedLanguage = localStorage.getItem("lang");
     this.languages = this.languageService.getLanguages();
     this.sub = 0.0
     this.units = 0.0
@@ -62,19 +62,19 @@ export class HomePage {
     //     console.log(response)
     //     console.log(JSON.parse(JSON.stringify(response)));
     //   });
-       this.odooProv.getOdooData(this.odooProv.getUid(), this.odooProv.getPassword(), "ppf.fund",
-       "search_read", [],
-        []).map(res => res)
-         .subscribe(res => {
-         })
+    this.odooProv.getOdooData(this.odooProv.getUid(), this.odooProv.getPassword(), "ppf.fund",
+      "search_read", [],
+      []).map(res => res)
+      .subscribe(res => {
+      })
     this.odooProv.getOdooData(this.odooProv.getUid(), this.odooProv.getPassword(), "res.users",
-     "search_read", [{ experssion: "%3D", filed: "id", value: this.odooProv.getUid() }],
+      "search_read", [{ experssion: "%3D", filed: "id", value: this.odooProv.getUid() }],
       [{ prop: "fields", prop_values: ["name"] }]).map(res => res)
-       .subscribe(res => {
-         this.name = res[0].name
-         this.setprofile(res[0].name)
-         this.common.hideLoading()
-         this.odooProv.getOdooData(
+      .subscribe(res => {
+        this.name = res[0].name
+        this.setprofile(res[0].name)
+        this.common.hideLoading()
+        this.odooProv.getOdooData(
           /* "1",
           "admin", */
           this.odooProv.getUid(),
@@ -86,13 +86,13 @@ export class HomePage {
           .subscribe(res => {
             // var resobjunits: any = []
             this.resobjunits = res
-            
+
             this.resobjunits.forEach(rec => {
-              
+
               this.sub += rec.total
             })
           })
-         this.odooProv.getOdooData(
+        this.odooProv.getOdooData(
           /* "1",
           "admin", */
           this.odooProv.getUid(),
@@ -104,59 +104,59 @@ export class HomePage {
           .subscribe(res => {
             // var resobjunits: any = []
             this.resobjunits = res
-            
+
             this.resobjunits.forEach(rec => {
-              
+
               this.units += rec.total_units
               this.odooProv.getOdooData(
-              /* "1",
-              "admin", */
-              this.odooProv.getUid(),
-              this.odooProv.getPassword(),
-              "product.template",
-              "search_read",
-              []
-            ).map(res => res)
-              .subscribe(res => {
-                // var resobjunits: any = []
-                this.products = res
-                this.products.forEach(rec => {
-                  this.price = rec.price
-                  this.rate = (((this.price * this.units) - this.sub) / this.sub)*100 
+                /* "1",
+                "admin", */
+                this.odooProv.getUid(),
+                this.odooProv.getPassword(),
+                "product.template",
+                "search_read",
+                []
+              ).map(res => res)
+                .subscribe(res => {
+                  // var resobjunits: any = []
+                  this.products = res
+                  this.products.forEach(rec => {
+                    this.price = rec.price
+                    this.rate = (((this.price * this.units) - this.sub) / this.sub) * 100
+                  })
+
+
                 })
-                
-                
-              })
             });
-    
+
           })
 
-       })
-    
-      
+      })
+
+
   }
   gotoprofile(data) {
-    this.navCtrl.push(ProfilePage,{data})
+    this.navCtrl.push(ProfilePage, { data })
   }
-  gotounits(data){
-    this.navCtrl.push(MyUnitsPage,{data})
+  gotounits(data) {
+    this.navCtrl.push(MyUnitsPage, { data })
   }
-  gotosubs(data){
-    this.navCtrl.push(MysubsPage,{data})
+  gotosubs(data) {
+    this.navCtrl.push(MysubsPage, { data })
   }
-  gotoinvests(data){
-    this.navCtrl.push(MyinvestsPage,{data})
+  gotoinvests(data) {
+    this.navCtrl.push(MyinvestsPage, { data })
   }
-  gotoloans(data){
-    this.navCtrl.push(LoanPage,{data})
+  gotoloans(data) {
+    this.navCtrl.push(LoanPage, { data })
   }
-  gotosurrenders(data,date){
-    this.navCtrl.push(SurrenderPage,{data,date})
+  gotosurrenders(data, date) {
+    this.navCtrl.push(SurrenderPage, { data, date })
   }
-  goToRepors(){
+  goToRepors() {
     this.navCtrl.push(ReportsPage)
   }
-  goToProducts(){
+  goToProducts() {
     this.navCtrl.push(ProductsPage)
   }
   setprofile(pro) {
@@ -164,15 +164,16 @@ export class HomePage {
   }
   doRefresh(refresher) {
   }
-  logout(){
+  logout() {
     // let nav = this.app.getRootNav()
     // nav.push("LoginPage")
     // this.navCtrl.push(LoginPage)
     // this.navCtrl.setRoot(LoginPage)
+    localStorage.clear()
     this.app.getRootNav().setRoot(LoginPage)
   }
-  
-  gotofundPerformance(){
+
+  gotofundPerformance() {
     this.navCtrl.push(FundPerformancePage)
   }
   // setLanguage(){
@@ -185,11 +186,11 @@ export class HomePage {
   //     this.translate.use(defaultLanguage);
   //   }
   // }
-  languageChanged(){
+  languageChanged() {
     this.languageService.setLanguage(this.selectedLanguage);
   }
-  surrenderAllert(){
-    this.translate.get(["Date of Surrender","Submit"]).subscribe(res=>{
+  surrenderAllert() {
+    this.translate.get(["Date of Surrender", "Submit"]).subscribe(res => {
       console.log(res)
       let alert = this.alertCtrl.create({
         title: this.allertTranslate('Surrender'),
@@ -206,24 +207,24 @@ export class HomePage {
             text: res["Submit"],
             role: 'Submit',
             handler: date => {
-              this.gotosurrenders(this.profile,date);
+              this.gotosurrenders(this.profile, date);
             }
           },
-          
+
         ]
       });
       alert.present();
     })
-   
+
   }
-  allertTranslate(key){
+  allertTranslate(key) {
     this.translate.get(key).subscribe((res) => {
       this.title = res;
-      
-   });
-   return this.title;
-    
+
+    });
+    return this.title;
+
   }
 
-  
+
 }
